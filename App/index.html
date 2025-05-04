@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang=it>
+<head>
+<meta charset=UTF-8 />
+<meta name=viewport content="width=device-width, initial-scale=1.0" />
+<title>Calcolatrice Web</title>
+<link rel=stylesheet href=styles.css />
+</head>
+<body id=calculator-body>
+<div class=calculator-container>
+<div class=history-container>
+<h3 class=history-title>Storico Calcoli</h3>
+<div class=calculation-history id=history></div>
+</div>
+<div class=calculator>
+<div class=display>
+<div class=calculation-history id=history-display></div>
+<div class=current-calculation id=current-calculation>0</div>
+<div class=result id=result>=0</div>
+</div>
+<div class=mode-buttons>
+<button class=mode-btn id=font-decrease title="Diminuisci Testo Storico">
+<svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round>
+<path stroke=none d="M0 0h24v24H0z" fill="none"/>
+<path d="M4 19v-10.5a3.5 3.5 0 1 1 7 0v10.5" />
+<path d="M4 13h7" />
+<path d="M21 12h-6" />
+</svg>
+</button>
+<button class=mode-btn id=font-increase title="Aumenta Testo Storico">
+<svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round>
+<path stroke=none d="M0 0h24v24H0z" fill="none"/>
+<path d="M4 19v-10.5a3.5 3.5 0 1 1 7 0v10.5" />
+<path d="M4 13h7" />
+<path d="M18 9v6" />
+<path d="M21 12h-6" />
+</svg>
+</button>
+<button class="mode-btn theme-toggle-btn" id=theme-toggle title="Cambia Tema">
+<span class=theme-icon-container>
+<svg class="theme-icon icon-moon" xmlns=http://www.w3.org/2000/svg width=18 height=18 viewBox="0 0 24 24" fill=currentColor>
+<path stroke=none d="M0 0h24v24H0z" fill=none />
+<path d="M12 1.992a10 10 0 1 0 9.236 13.838c.341 -.82 -.476 -1.644 -1.298 -1.31a6.5 6.5 0 0 1 -6.864 -10.787l.077 -.08c.551 -.63 .113 -1.653 -.758 -1.653h-.266l-.068 -.006l-.06 -.002z" />
+</svg>
+<svg class="theme-icon icon-sun" xmlns=http://www.w3.org/2000/svg width=18 height=18 viewBox="0 0 24 24" fill=currentColor>
+<path stroke=none d="M0 0h24v24H0z" fill=none />
+<path d="M12 19a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" />
+<path d="M18.313 16.91l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.218 -1.567l.102 .07z" />
+<path d="M7.007 16.993a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" />
+<path d="M4 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" />
+<path d="M21 11a1 1 0 0 1 .117 1.993l-.117 .007h-1a1 1 0 0 1 -.117 -1.993l.117 -.007h1z" />
+<path d="M6.213 4.81l.094 .083l.7 .7a1 1 0 0 1 -1.32 1.497l-.094 -.083l-.7 -.7a1 1 0 0 1 1.217 -1.567l.102 .07z" />
+<path d="M19.107 4.893a1 1 0 0 1 .083 1.32l-.083 .094l-.7 .7a1 1 0 0 1 -1.497 -1.32l.083 -.094l.7 -.7a1 1 0 0 1 1.414 0z" />
+<path d="M12 2a1 1 0 0 1 .993 .883l.007 .117v1a1 1 0 0 1 -1.993 .117l-.007 -.117v-1a1 1 0 0 1 1 -1z" />
+<path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+</svg>
+</span>
+</button>
+<div class="decimal-selector mode-btn-replacement">
+<span class=decimal-label>Dec:</span>
+<input type=number id=decimal-places class=decimal-input min=0 max=10 value=2 />
+</div>
+</div>
+<div class=keypad>
+<button class="key function" id=clear>AC</button>
+<button class="key function" id=backspace>⌫</button>
+<button class="key function" id=percent>%</button>
+<button class="key operator" id=divide>/</button>
+<button class="key number" id=seven>7</button>
+<button class="key number" id=eight>8</button>
+<button class="key number" id=nine>9</button>
+<button class="key operator" id=multiply>*</button>
+<button class="key number" id=four>4</button>
+<button class="key number" id=five>5</button>
+<button class="key number" id=six>6</button>
+<button class="key operator" id=subtract>-</button>
+<button class="key number" id=one>1</button>
+<button class="key number" id=two>2</button>
+<button class="key number" id=three>3</button>
+<button class="key operator" id=add>+</button>
+<button class="key number wide" id=zero>0</button>
+<button class="key number" id=decimal>.</button>
+<button class="key operator tall" id=equals>=</button>
+</div>
+</div>
+</div>
+<script src=script.js></script>
+<script src=https://storage.ko-fi.com/cdn/scripts/overlay-widget.js></script>
+<div>
+<script>kofiWidgetOverlay.draw("starkweb",{type:"floating-chat","floating-chat.donateButton.text":"Donate","floating-chat.donateButton.background-color":"#1C9FFC","floating-chat.donateButton.text-color":"#fff"});</script>
+</div>
+</body>
+</html>
