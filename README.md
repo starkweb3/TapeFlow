@@ -2,7 +2,7 @@
 
 This is a feature-rich web-based calculator application including an editable calculation history, light/dark themes, and adjustable history font size.
 
-** ➡️ Live Demo Link  https://tapeflow.pages.dev ⬅️ **
+** ➡️ Live Demo Link: https://tapeflow.pages.dev/App/ ⬅️ **
 
 
 ---
